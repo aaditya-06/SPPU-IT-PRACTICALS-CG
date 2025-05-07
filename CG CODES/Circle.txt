@@ -1,0 +1,72 @@
+ASSIGNMENT NO. :03 
+AIM: 
+Implement Bresenham circle drawing algorithm to draw any object. The 
+object should be displayed in all the quadrants with respect to center and 
+radius 
+PRE-REQUISITE: 
+1. Knowledge of Library function of OpenGL. 
+2. Knowledge of Graphical Characteristics of Rectangle and circle 
+OBJECTIVE: 
+1. To Learn Circle drawing algorithm 
+THEORY: 
+Bresenham’s Circle Drawing: 
+A circle is a symmetrical figure. It has eight - way symmetry. If we know any 
+single point of circle we can plot all remaining seven pixels using 8- way 
+symmetry. This algorithm considers 8 –way symmetry of circle and generates 
+the whole circle. 1/8th part of circle i.e. from 90° to 45° is drawn, during this 
+x increments in positive direction and y increments in negative direction. In 
+this algorithm we have to select proper pixel which is either on the circle or 
+closed to the circle port. 
+Decision Variable is given as d = 3 -2r 
+Department of Information Technology Page 27 | 54 
+Downloaded by Sahil Pokharkar (sahilpokharkar4353@gmail.com)
+lOMoARcPSD|54700748
+ Algorithm: 
+Read radius (r) of the circle. 
+Initialize Decision variable 
+ d = 3 – 2r. 
+Initialize Starting point 
+x = 0, y = r 
+do 
+ { 
+ Plot (x, y) 
+ Plot (y, x) 
+ Plot (y, - x) 
+ Plot (x, - y) 
+ Plot (- x, - y) 
+ Plot (- y, - x) 
+ Plot (- y, x) 
+ Plot (- x, y) 
+ if ( d < 0) 
+ { 
+ d = d + 4x + 6 
+} 
+ else 
+ { 
+ d = d + 4(x – y) + 10 
+y = y – 1 
+} 
+x = x + 1 
+Department of Information Technology Page 28 | 54 
+Downloaded by Sahil Pokharkar (sahilpokharkar4353@gmail.com)
+lOMoARcPSD|54700748
+ } while (x < y) 
+    Stop. 
+Algorithm: 
+1. Input radius r and circle center (xc,yc) , and obtain the first point on the 
+circumference of the circle centered on the origin as 
+ (x0, y0) = (0, r) 
+2. Calculate the initial value of the decision parameter as 
+P0 = 5/4 – r 
+3. At each xk position, startin at k =0, perform the following test: If pk< 0, 
+the next point along the circle centered on (0,0) is (xk + 1, yk) and 
+4. Pk+1 = pk + 2xk+1 + 1 
+5. Otherwise, the next point along the circle is (xk +1,yk-1) and 
+Pk+1 = pk + 2xk+1 +1 – 2yk+1 
+ Where 2xk+1 = 2xk +2 and 2yk+1 = 2yk -2. 
+ 6. Determine symmetry points in the other seven octants. Move each calculated 
+pixel position (x,y) onto the circular path centered on (xc,yc) and plot the 
+coordinate values: 
+x= x + xc 
+y = y + yc 
+7. Repeat syeps 3 through 5 until x>=y
